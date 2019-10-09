@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>LeoneZhu‘s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="缓存 类型  本地缓存 分布式缓存 多级缓存   淘汰策略  FIFO：先入先出，淘汰最早的数据 LRU：最近最少使用的数据 LFU：最近使用频率最低的数据   缓存问题  缓存不一致 缓存更新 缓存击穿 缓存雪崩   Memcache  Redis  Redis特点   单线程异步IO 支持持久化 多数据结构 主从模式   数据结构   String hash set list zset   功">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeoneZhu‘s Blog">
+<meta property="og:url" content="https://leonezhu.github.io/blog/2019/08/14/java/缓存/index.html">
+<meta property="og:site_name" content="LeoneZhu‘s Blog">
+<meta property="og:description" content="缓存 类型  本地缓存 分布式缓存 多级缓存   淘汰策略  FIFO：先入先出，淘汰最早的数据 LRU：最近最少使用的数据 LFU：最近使用频率最低的数据   缓存问题  缓存不一致 缓存更新 缓存击穿 缓存雪崩   Memcache  Redis  Redis特点   单线程异步IO 支持持久化 多数据结构 主从模式   数据结构   String hash set list zset   功">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7rrv77jh7j30r10ciq85.jpg">
+<meta property="og:updated_time" content="2019-10-09T03:09:34.172Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LeoneZhu‘s Blog">
+<meta name="twitter:description" content="缓存 类型  本地缓存 分布式缓存 多级缓存   淘汰策略  FIFO：先入先出，淘汰最早的数据 LRU：最近最少使用的数据 LFU：最近使用频率最低的数据   缓存问题  缓存不一致 缓存更新 缓存击穿 缓存雪崩   Memcache  Redis  Redis特点   单线程异步IO 支持持久化 多数据结构 主从模式   数据结构   String hash set list zset   功">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7rrv77jh7j30r10ciq85.jpg">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="LeoneZhu‘s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">LeoneZhu‘s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">记录美丽生活</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://leonezhu.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-java/缓存" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/08/14/java/缓存/" class="article-date">
+  <time datetime="2019-08-13T18:31:42.658Z" itemprop="datePublished">2019-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><ul>
+<li><p>类型</p>
+<ul>
+<li>本地缓存</li>
+<li>分布式缓存</li>
+<li>多级缓存</li>
+</ul>
+</li>
+<li><p>淘汰策略</p>
+<ul>
+<li>FIFO：先入先出，淘汰最早的数据</li>
+<li>LRU：最近最少使用的数据</li>
+<li>LFU：最近使用频率最低的数据</li>
+</ul>
+</li>
+<li><p>缓存问题</p>
+<ul>
+<li>缓存不一致</li>
+<li>缓存更新</li>
+<li>缓存击穿</li>
+<li>缓存雪崩</li>
+</ul>
+</li>
+<li><p>Memcache</p>
+</li>
+<li><p>Redis</p>
+<ul>
+<li><p>Redis特点 </p>
+<ul>
+<li>单线程异步IO</li>
+<li>支持持久化</li>
+<li>多数据结构</li>
+<li>主从模式</li>
+</ul>
+</li>
+<li><p>数据结构 </p>
+<ul>
+<li>String</li>
+<li>hash</li>
+<li>set</li>
+<li>list</li>
+<li>zset</li>
+</ul>
+</li>
+<li><p>功能</p>
+<ul>
+<li>pub/sub：简单的订阅发布功能，可以用作消息队列</li>
+<li>pipeline：批量执行一组执行，一次性返回所有请求结果</li>
+<li>lua脚本</li>
+<li>事务：不是严格的事务，只保证串行执行命令，只保证全部执行，失败不会回滚</li>
+</ul>
+</li>
+<li><p>数据持久化 </p>
+<p>​    <a href="http://redisdoc.com/topic/persistence.html" target="_blank" rel="noopener">http://redisdoc.com/topic/persistence.html</a></p>
+<ul>
+<li><p>RDB：在指定的时间间隔里生成数据集的时间点快照。RDB文件是简洁的单文件，适合用于做灾备。比起AOF，在数据量大的情况下，RDB的启动速度更快。保存快照时可能导致服务短时间不可用</p>
+</li>
+<li><p>AOF：记录服务器执行写操作命令，并在服务器启动时，通过重新执行这些命令来还原数据集。</p>
+<p>两种方式同时启用的化，在Redis重启时会优先使用AOF文件来欢迎数据集，因为AOF文件保存的数据集通常比RDB文件保存的数据集更加完整。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>redis cluster </p>
+<pre><code>[Redis集群的原理和搭建](&lt;https://juejin.im/entry/596343056fb9a06bc340ac15&gt;)</code></pre><p>​    Redis集群使用数据分片实现，一个Redis集群包含16384个哈希槽。</p>
+<ul>
+<li>Sentinel</li>
+<li>主从同步：为了使得集群在一部分节点下线或者无法与集群的大多数（majority）节点进行通讯的情况下， 仍然可以正常运作， Redis 集群对节点使用了主从复制功能： 集群中的每个节点都有 1 个至 N 个复制品（replica）， 其中一个复制品为主节点（master）， 而其余的 N-1 个复制品为从节点（slave）。</li>
+<li>master选举</li>
+</ul>
+</li>
+<li><p>Redis数据一致性</p>
+<p>Redis不能保证数据的强一致性，导致数据不一致的原因有</p>
+<ul>
+<li>异步复制：客户端向主节点写入一条命令，主节点向客服端回复命令状态，之后才由主节点将操作复制给子节点们</li>
+<li>网络分区：客户端与其中一个主节点因网络分区分在一块，因网络分区时间较长，节点超时该主节点的子节点已经被选举为新的主节点，故原主节点写入的数据就会丢失</li>
+</ul>
+</li>
+<li><p>key失效机制 </p>
+<ul>
+<li>主动删除：周期性地从设置了失效时间的主键中选择一部分失效的主键删除</li>
+<li>被动删除：消极方法，在主键被访问时发现它是否失效，失效的话删除</li>
+</ul>
+</li>
+<li><p>淘汰策略</p>
+<ul>
+<li><p><strong>volatile-lru</strong>：从已设置过期时间的数据集（server.db[i].expires）中挑选最近最少使用的数据淘汰</p>
+</li>
+<li><p><strong>volatile-ttl</strong>：从已设置过期时间的数据集（server.db[i].expires）中挑选将要过期的数据淘汰</p>
+</li>
+<li><p><strong>volatile-random</strong>：从已设置过期时间的数据集（server.db[i].expires）中任意选择数据淘汰</p>
+</li>
+<li><p><strong>allkeys-lru</strong>：从数据集（server.db[i].dict）中挑选最近最少使用的数据淘汰</p>
+</li>
+<li><p><strong>allkeys-random</strong>：从数据集（server.db[i].dict）中任意选择数据淘汰</p>
+</li>
+<li><p><strong>no-enviction</strong>（驱逐）：禁止驱逐数据，容量满时报错不能添加数据，只能新增</p>
+</li>
+</ul>
+</li>
+<li><p>Redis大量数据插入</p>
+<p>使用管道执行大批量的set key value生成的协议</p>
+</li>
+</ul>
+<ul>
+<li>缓存常见问题</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7rrv77jh7j30r10ciq85.jpg" alt="缓存常见问题"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leonezhu.github.io/blog/2019/08/14/java/缓存/" data-id="ck1ipmms90003e5cnuzr1vfut" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2019/08/14/java/多线程/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2019/08/14/java/java常用工具类/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2019/10/09/Shell-POST/">Shell &amp; POST</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/08/19/高效学习/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/08/14/java/多线程/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/08/14/java/缓存/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/08/14/java/java常用工具类/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 leonezhu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

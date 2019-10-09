@@ -174,6 +174,541 @@
 
 
   
+    <article id="post-java/多线程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/08/14/java/多线程/" class="article-date">
+  <time datetime="2019-08-13T18:31:42.658Z" itemprop="datePublished">2019-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><ul>
+<li><p>ArrayBlockingQueue类</p>
+<p>是java.util.concurrent包下的一个基于数组的阻塞队列。主要方法有：</p>
+<p>add(E e)：将e加到队列里，实际调用offer方法，失败报错</p>
+<p>offer(E e)：将e放到队列里，如果队列可以容纳，则返回ture，否则返回false</p>
+<p>offer(E e, long timeout, TimeUnit unit)：添加超时时间参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public boolean offer(E e, long timeout, TimeUnit unit)</span><br><span class="line">    throws InterruptedException &#123;</span><br><span class="line">  </span><br><span class="line">    Objects.requireNonNull(e);</span><br><span class="line">    long nanos = unit.toNanos(timeout);</span><br><span class="line">    final ReentrantLock lock = this.lock;</span><br><span class="line">    lock.lockInterruptibly();</span><br><span class="line">    try &#123;</span><br><span class="line">        while (count == items.length) &#123;</span><br><span class="line">        //超时，直接返回false</span><br><span class="line">            if (nanos &lt;= 0L)</span><br><span class="line">                return false;</span><br><span class="line">            nanos = notFull.awaitNanos(nanos);</span><br><span class="line">        &#125;</span><br><span class="line">        enqueue(e);</span><br><span class="line">        return true;</span><br><span class="line">    &#125; finally &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>put(E e)：将e放到队列里，如果队列没有空间，则调用该方法的线程被阻断，直到队列里有空间再继续</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public void put(E e) throws InterruptedException &#123;</span><br><span class="line">    Objects.requireNonNull(e);</span><br><span class="line">    final ReentrantLock lock = this.lock;</span><br><span class="line">    lock.lockInterruptibly();</span><br><span class="line">    try &#123;</span><br><span class="line">        while (count == items.length)</span><br><span class="line">            notFull.await();</span><br><span class="line">        enqueue(e);</span><br><span class="line">    &#125; finally &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>Sleep()与wait()的区别？</p>
+<ol>
+<li>sleep是Treed类的方法，wait是Object类的方法</li>
+<li>sleep不会影响锁行为的改变</li>
+<li>sleep与wait都会暂停当前的线程，调用wait后需要别的线程执行notify/notifyAll才能重新获得CPU的执行时间</li>
+<li></li>
+</ol>
+</li>
+<li><p>锁</p>
+<p><a href="https://tech.meituan.com/2018/11/15/java-lock.html" target="_blank" rel="noopener">Java锁</a></p>
+<ul>
+<li><p>Synchronized 与 Lock的区别</p>
+<p><a href="https://blog.csdn.net/u012403290/article/details/64910926" target="_blank" rel="noopener">https://blog.csdn.net/u012403290/article/details/64910926</a></p>
+<ol>
+<li>Synchronized 是Java中的关键字，托管给JVM执行。Lock是接口，通过java代码控制锁的实现，常用的类有ReentrantLock。</li>
+<li>Synchronized 锁的释放方式有两种。一是获取锁的线程执行完了同步代码，释放锁。二是执行异常释放锁。Lock获取锁后必须再finaly里释放锁，不然会死锁</li>
+<li>两者锁的获取方式不一样。对于Synchronized 而言，假设A线程获得锁，B线程等待。如果A线程阻塞，B线程会一直等待。Lock有很多实现类，获取锁的方式也有多种。。。TODO</li>
+<li>Synchronized 无法获得锁的状态，Lock可以判断</li>
+<li>可实现的锁类型不一样：Synchronized（可重入 不可中断 非公平） ，Lock（可重入 可判断 可公平（两者皆可））</li>
+</ol>
+</li>
+<li><p>锁的类型</p>
+<ul>
+<li><p>可重入锁：在执行对象中所有同步方法不用再次获得锁</p>
+</li>
+<li><p>可中断锁：在等待获取锁过程中可中断</p>
+</li>
+<li><p>公平锁： 按等待获取锁的线程的等待时间进行获取，等待时间长的具有优先获取锁权利</p>
+</li>
+<li><p>读写锁：对资源读取和写入的时候拆分为2部分处理，读的时候可以多线程一起读，写的时候必须同步地写</p>
+</li>
+<li><p>悲观锁：对于同一个数据的并发操作，悲观锁认为自己在使用数据的时候一定有别的线程来修改数据，因此在获取数据的时候会先加锁，确保数据不会被别的线程修改。Java中，synchronized关键字和Lock的实现类都是悲观锁</p>
+</li>
+<li><p>乐观锁：认为自己在使用数据时不会有别的线程修改数据，所以不会添加锁，只是在更新数据的时候去判断之前有没有别的线程更新了这个数据。如果这个数据没有被更新，当前线程将自己修改的数据成功写入。如果数据已经被其他线程更新，则根据不同的实现方式执行不同的操作（例如报错或者自动重试）。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>volatile深入分析</p>
+<p><a href="https://blog.csdn.net/vernonzheng/article/details/8201744" target="_blank" rel="noopener">https://blog.csdn.net/vernonzheng/article/details/8201744</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leonezhu.github.io/blog/2019/08/14/java/多线程/" data-id="ck1ipmms80002e5cnf71kehe8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java/缓存" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/08/14/java/缓存/" class="article-date">
+  <time datetime="2019-08-13T18:31:42.658Z" itemprop="datePublished">2019-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><ul>
+<li><p>类型</p>
+<ul>
+<li>本地缓存</li>
+<li>分布式缓存</li>
+<li>多级缓存</li>
+</ul>
+</li>
+<li><p>淘汰策略</p>
+<ul>
+<li>FIFO：先入先出，淘汰最早的数据</li>
+<li>LRU：最近最少使用的数据</li>
+<li>LFU：最近使用频率最低的数据</li>
+</ul>
+</li>
+<li><p>缓存问题</p>
+<ul>
+<li>缓存不一致</li>
+<li>缓存更新</li>
+<li>缓存击穿</li>
+<li>缓存雪崩</li>
+</ul>
+</li>
+<li><p>Memcache</p>
+</li>
+<li><p>Redis</p>
+<ul>
+<li><p>Redis特点 </p>
+<ul>
+<li>单线程异步IO</li>
+<li>支持持久化</li>
+<li>多数据结构</li>
+<li>主从模式</li>
+</ul>
+</li>
+<li><p>数据结构 </p>
+<ul>
+<li>String</li>
+<li>hash</li>
+<li>set</li>
+<li>list</li>
+<li>zset</li>
+</ul>
+</li>
+<li><p>功能</p>
+<ul>
+<li>pub/sub：简单的订阅发布功能，可以用作消息队列</li>
+<li>pipeline：批量执行一组执行，一次性返回所有请求结果</li>
+<li>lua脚本</li>
+<li>事务：不是严格的事务，只保证串行执行命令，只保证全部执行，失败不会回滚</li>
+</ul>
+</li>
+<li><p>数据持久化 </p>
+<p>​    <a href="http://redisdoc.com/topic/persistence.html" target="_blank" rel="noopener">http://redisdoc.com/topic/persistence.html</a></p>
+<ul>
+<li><p>RDB：在指定的时间间隔里生成数据集的时间点快照。RDB文件是简洁的单文件，适合用于做灾备。比起AOF，在数据量大的情况下，RDB的启动速度更快。保存快照时可能导致服务短时间不可用</p>
+</li>
+<li><p>AOF：记录服务器执行写操作命令，并在服务器启动时，通过重新执行这些命令来还原数据集。</p>
+<p>两种方式同时启用的化，在Redis重启时会优先使用AOF文件来欢迎数据集，因为AOF文件保存的数据集通常比RDB文件保存的数据集更加完整。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>redis cluster </p>
+<pre><code>[Redis集群的原理和搭建](&lt;https://juejin.im/entry/596343056fb9a06bc340ac15&gt;)</code></pre><p>​    Redis集群使用数据分片实现，一个Redis集群包含16384个哈希槽。</p>
+<ul>
+<li>Sentinel</li>
+<li>主从同步：为了使得集群在一部分节点下线或者无法与集群的大多数（majority）节点进行通讯的情况下， 仍然可以正常运作， Redis 集群对节点使用了主从复制功能： 集群中的每个节点都有 1 个至 N 个复制品（replica）， 其中一个复制品为主节点（master）， 而其余的 N-1 个复制品为从节点（slave）。</li>
+<li>master选举</li>
+</ul>
+</li>
+<li><p>Redis数据一致性</p>
+<p>Redis不能保证数据的强一致性，导致数据不一致的原因有</p>
+<ul>
+<li>异步复制：客户端向主节点写入一条命令，主节点向客服端回复命令状态，之后才由主节点将操作复制给子节点们</li>
+<li>网络分区：客户端与其中一个主节点因网络分区分在一块，因网络分区时间较长，节点超时该主节点的子节点已经被选举为新的主节点，故原主节点写入的数据就会丢失</li>
+</ul>
+</li>
+<li><p>key失效机制 </p>
+<ul>
+<li>主动删除：周期性地从设置了失效时间的主键中选择一部分失效的主键删除</li>
+<li>被动删除：消极方法，在主键被访问时发现它是否失效，失效的话删除</li>
+</ul>
+</li>
+<li><p>淘汰策略</p>
+<ul>
+<li><p><strong>volatile-lru</strong>：从已设置过期时间的数据集（server.db[i].expires）中挑选最近最少使用的数据淘汰</p>
+</li>
+<li><p><strong>volatile-ttl</strong>：从已设置过期时间的数据集（server.db[i].expires）中挑选将要过期的数据淘汰</p>
+</li>
+<li><p><strong>volatile-random</strong>：从已设置过期时间的数据集（server.db[i].expires）中任意选择数据淘汰</p>
+</li>
+<li><p><strong>allkeys-lru</strong>：从数据集（server.db[i].dict）中挑选最近最少使用的数据淘汰</p>
+</li>
+<li><p><strong>allkeys-random</strong>：从数据集（server.db[i].dict）中任意选择数据淘汰</p>
+</li>
+<li><p><strong>no-enviction</strong>（驱逐）：禁止驱逐数据，容量满时报错不能添加数据，只能新增</p>
+</li>
+</ul>
+</li>
+<li><p>Redis大量数据插入</p>
+<p>使用管道执行大批量的set key value生成的协议</p>
+</li>
+</ul>
+<ul>
+<li>缓存常见问题</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7rrv77jh7j30r10ciq85.jpg" alt="缓存常见问题"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leonezhu.github.io/blog/2019/08/14/java/缓存/" data-id="ck1ipmms90003e5cnuzr1vfut" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java/java常用工具类" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/08/14/java/java常用工具类/" class="article-date">
+  <time datetime="2019-08-13T18:31:42.657Z" itemprop="datePublished">2019-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java常用工具类"><a href="#Java常用工具类" class="headerlink" title="Java常用工具类"></a>Java常用工具类</h1><ul>
+<li><p>CountDownLatch</p>
+<p>CountDodnLatch是一个常用的多线程控制工具类，是一个倒计时器。通过int参数的构造方法初始化一个指定线程数量的对象。主要方法有countDown(),awit()。</p>
+<p>countDown()：通知CountDownLatch有一个线程已经准备完毕，倒计数器减一</p>
+<p>awit()：要求主线程等待所有线程检查任务全部准备好才一起并行执行</p>
+<p>参考文档：<a href="https://www.relaxheart.cn/to/blog/streamline?uuid=83" target="_blank" rel="noopener">https://www.relaxheart.cn/to/blog/streamline?uuid=83</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leonezhu.github.io/blog/2019/08/14/java/java常用工具类/" data-id="ck1ipmms30000e5cnoxn6s5qq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java/Java面试知识点" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/08/14/java/Java面试知识点/" class="article-date">
+  <time datetime="2019-08-13T18:31:42.657Z" itemprop="datePublished">2019-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><ul>
+<li><p>在Java中String类为什么要设计成finnal？</p>
+<p>​    <a href="https://blog.csdn.net/u013905744/article/details/52414111" target="_blank" rel="noopener">https://blog.csdn.net/u013905744/article/details/52414111</a></p>
+</li>
+</ul>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><ul>
+<li><p>什么是多线程？与单线程的区别？有什么好处？</p>
+<p>答题思路：先描述什么进程？什么是线程？什么是多线程？然后再描述多线程的优缺点。最后结合实际使用</p>
+<p>答：进程是程序的一次动态执行过程。线程是比进程更小的执行单位，执行流。多线程就是值程序中包含多个执行流，就是说一个程序中可以同时运行多个线程来并向执行不同的任务。</p>
+<p>多线程的好处：可以提高CPU利用率，在多线程程序中，一个线程必须等待的时候（逻辑处理，耗时）。CPU可以运行其他的线程而不是等待，这样提高了效率，也就是程序运行速度。</p>
+<p>多线程的不利：</p>
+<ul>
+<li>线程也是程序，需要占用内存，线程越多占用内存也越多。</li>
+<li>多线程需要协调和管理，所以需要CPU时间跟踪线程； </li>
+<li>线程之间对共享资源的访问会相互影响，必须解决竞用共享资源的问题；</li>
+<li>线程太多会导致控制太复杂，最终可能造成很多Bug；</li>
+</ul>
+<p>比如获取商品详情页数据的接口时，需要返回商品的图片信息、规格、相似商品等，这里就用了CountDownLatch这个多线程计数器来实现多线程</p>
+</li>
+<li><p>Thead.start()实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">public synchronized void start() &#123;</span><br><span class="line">       /**</span><br><span class="line">        * This method is not invoked for the main method thread or &quot;system&quot;</span><br><span class="line">        * group threads created/set up by the VM. Any new functionality added</span><br><span class="line">        * to this method in the future may have to also be added to the VM.</span><br><span class="line">        *</span><br><span class="line">        * A zero status value corresponds to state &quot;NEW&quot;.</span><br><span class="line">        */</span><br><span class="line">        //1 判断线程状态，是否</span><br><span class="line">       if (threadStatus != 0)</span><br><span class="line">           throw new IllegalThreadStateException();</span><br><span class="line">  </span><br><span class="line">       /* Notify the group that this thread is about to be started</span><br><span class="line">        * so that it can be added to the group&apos;s list of threads</span><br><span class="line">        * and the group&apos;s unstarted count can be decremented. */</span><br><span class="line">       group.add(this);</span><br><span class="line">  </span><br><span class="line">       boolean started = false;</span><br><span class="line">       try &#123;</span><br><span class="line">           start0();</span><br><span class="line">           started = true;</span><br><span class="line">       &#125; finally &#123;</span><br><span class="line">           try &#123;</span><br><span class="line">               if (!started) &#123;</span><br><span class="line">                   group.threadStartFailed(this);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125; catch (Throwable ignore) &#123;</span><br><span class="line">               /* do nothing. If start0 threw a Throwable then</span><br><span class="line">                 it will be passed up the call stack */</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://juejin.im/post/5b09274af265da0de25759d5" target="_blank" rel="noopener">https://juejin.im/post/5b09274af265da0de25759d5</a></p>
+</li>
+<li><p>Java中线程的实现方式</p>
+<p>1.实现Runnable。2继承Thread类。Thread类也是Runnable的子类，但是Thread类并没有完全实现Runnable接口中的run()方法，Thread类中的run()方法调用的是Runnable接口中的run()方法，也就是说该方法是由Runnable子类完成的，所以要通过继承Thread类实现多线程，则必须覆写run()方法。</p>
+<p><strong>两种方式的区别是实现Runnable接口可以避免单继承的局限性，二是可以实现资源的共享</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public class ThreadDemo &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        HelloThread t1 = new HelloThread();</span><br><span class="line">        t1.setName(&quot;一号窗口&quot;);</span><br><span class="line">        t1.start();</span><br><span class="line">        HelloThread t2 = new HelloThread();</span><br><span class="line">        t2.setName(&quot;二号窗口&quot;);</span><br><span class="line">        t2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class HelloThread extends Thread&#123;</span><br><span class="line">    private int ticket = 5;</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        while(true)&#123;</span><br><span class="line">            System.out.println(this.getName()+(ticket--));</span><br><span class="line">            if (ticket&lt;1) &#123;</span><br><span class="line">               break;   </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>线程的状态变化</p>
+<p>创建状态：创建一个线程对象，如 Thread t = new Thread();</p>
+<p>就绪状态：新建线程对象后，调用该对象的start()方法就可以启动线程。线程启动后进入就绪状态。进入线程队列排队等待CPU</p>
+<p>服务。</p>
+<p>运行状态：当就绪状态被调用并获得处理器资源时，线程进入运行状态。此时，自动调用该线程对象的run()方法。run()方法定义该线程的操作和功能。</p>
+<p>阻塞状态：当一个正在执行的线程在某些特殊情况下，如被人为挂起或需要执行耗时的输入/输出操作，会让CPU暂时中止自己的执行，进入阻塞状态。在可执行状态下，如调用sleep(),wait()等方法，线程也会进入阻塞状态，发生阻塞时线程不能进入排队队列。</p>
+<p>死亡状态：线程调用stop()方法或run()方法结束后，即处于死亡状态。</p>
+</li>
+</ul>
+<h2 id="sql"><a href="#sql" class="headerlink" title="sql"></a>sql</h2><p><a href="https://blog.csdn.net/hundan_520520/article/details/54881208" target="_blank" rel="noopener">https://blog.csdn.net/hundan_520520/article/details/54881208</a></p>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><ul>
+<li><p>使用递归算法解决斐波那契数列</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public class Digui &#123;</span><br><span class="line">    // 0 5 5 10 15 25 。。。 求第50个数的值</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Digui digui = new Digui();</span><br><span class="line">        // System.out.println(digui.digui(50));</span><br><span class="line">        for (int i = 1; i &lt;50 ; i++) &#123;</span><br><span class="line">            System.out.println(digui.digui(i));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public long digui(int x)&#123;</span><br><span class="line">        if(x ==1)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line">        if(x == 2)&#123;</span><br><span class="line">            return 5;</span><br><span class="line">        &#125;</span><br><span class="line">        //第3个数的值=第一个数的值(didui(3-2))+第二个数的值（digui(3-1)）</span><br><span class="line">        return digui(x - 2) + digui(x - 1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h2 id="秒杀系统"><a href="#秒杀系统" class="headerlink" title="秒杀系统"></a>秒杀系统</h2><ul>
+<li><p>如何设计一个秒杀系统：<a href="https://blog.csdn.net/suifeng3051/article/details/52607544" target="_blank" rel="noopener">https://blog.csdn.net/suifeng3051/article/details/52607544</a></p>
+<p>并发量大、库存少，防止超卖（使用redis锁，乐观锁）；</p>
+<p>做法思路：</p>
+<ul>
+<li><p>限制流量：</p>
+<ul>
+<li>产品层面，用户点击“查询”或者“购票”后，按钮置灰，禁止用户重复提交请求；</li>
+<li>JS 层面，限制用户在 x 秒之内只能提交一次请求；</li>
+<li>站点层面：对uid进行uid进行计数和去重</li>
+<li>服务层（重点）：</li>
+</ul>
+</li>
+<li><p>削峰</p>
+</li>
+<li><p>异步处理</p>
+</li>
+<li><p>内存缓存</p>
+</li>
+<li><p>做法：</p>
+<ol>
+<li>缓存系统负责接收记录用户请求：用原子类型的变量值作为key（比如商品），用户id作为value，将数据存入列表里，每次请求判断列表的长度。</li>
+<li>消息中间件(MQ)负责将缓存中的请求同步到数据库</li>
+<li>执行</li>
+</ol>
+</li>
+<li><p>分布式锁</p>
+<ul>
+<li>基于Redis SETNX方法（对应Java中的setIfAbsent）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><ul>
+<li><p>常用的linux命令</p>
+<p>查看tomcat进程：ps -ef | grep tomcat</p>
+<p>查看网络状态（根据经常查看端口号）： sudo netstat -naop | grep 端口号</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leonezhu.github.io/blog/2019/08/14/java/Java面试知识点/" data-id="ck1ipmms60001e5cnz6266390" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mysql/mysql" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/08/12/mysql/mysql/" class="article-date">
+  <time datetime="2019-08-11T19:10:46.262Z" itemprop="datePublished">2019-08-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h1><ul>
+<li><p>常用SQL语句</p>
+</li>
+<li><p>数据类型</p>
+<p><a href="https://blog.csdn.net/DayDreamingBoy/article/details/6310907" target="_blank" rel="noopener">https://blog.csdn.net/DayDreamingBoy/article/details/6310907</a></p>
+</li>
+<li><p>存储引擎</p>
+<ul>
+<li>MyISAM：Mysql5.0之前的默认数据库引擎，较高的插入、查询速度，但不支持事务</li>
+<li>InnoDB：Mysql5.5 版本后的默认数据库引擎。支持ACID事务，支持外键，支持行级锁</li>
+<li>BDB：第三方Mysql存储引擎</li>
+</ul>
+</li>
+<li><p>锁</p>
+</li>
+</ul>
+<p><a href="https://zhuanlan.zhihu.com/p/29150809" target="_blank" rel="noopener">Mysql锁的总结</a></p>
+<p>  并发事务同时访问一个资源时，有可能导致数据不一致。锁就是其中将数据访问顺序化，以保证数据库数据的一致性的机制。锁是在执行多线程时用于强行限制资源访问的同步机制，即用于在并发控制中保证对互斥要求的满足。</p>
+<p>  锁的分类：</p>
+<ul>
+<li><p>按操作划分：</p>
+<ul>
+<li>DML锁：data locks，数据锁），用于保护数据的完整性，其中包括行级锁(Row Locks (TX锁))、表级锁(table lock(TM锁))</li>
+<li>DDL锁：（dictionary locks，数据字典锁），用于保护数据库对象的结构，如表、索引等的结构定义。其中包排他DDL锁（Exclusive DDL lock）、共享DDL锁（Share DDL lock）、可中断解析锁（Breakable parse locks）</li>
+</ul>
+</li>
+<li><p>按锁的粒度划分</p>
+<ul>
+<li>表级锁：开销小，加锁快；不会出现死锁；锁定粒度大，发生锁冲突的概率最高，并发度最低。</li>
+<li>行级锁：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低，并发度也最高。</li>
+<li>页级锁</li>
+</ul>
+</li>
+<li><p>按锁的级别划分</p>
+<ul>
+<li>共享锁：读锁，其他事务可以读，不可以写</li>
+<li>排他锁：写锁，其他事务既不能读也不能写</li>
+</ul>
+</li>
+<li><p>按锁的加锁方式</p>
+<ul>
+<li>自动锁</li>
+<li>显示锁</li>
+</ul>
+</li>
+<li><p>按使用方式</p>
+<ul>
+<li>乐观锁：假设不会发生并发冲突，只在提交操作时检查是否违反数据完整性。乐观锁不不能解决脏读的问题。可以使用版本号等机制。乐观锁适用于多读的应用类型，这样可以提高吞吐量</li>
+<li>悲观锁：每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会block直到它拿到锁。传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。</li>
+</ul>
+<p>优化锁性能：</p>
+<p>//TODO</p>
+<p>死锁：死锁是指多个事务在同一个资源上相互占用，并请求锁定对方占用的资源，从而导致恶性循环</p>
+<p>InnoDB避免死锁：</p>
+<p>//TODO</p>
+</li>
+</ul>
+<ul>
+<li><p>索引</p>
+<p><a href="https://tech.meituan.com/2014/06/30/mysql-index.html" target="_blank" rel="noopener">MySQL索引原理及慢查询优化</a></p>
+<p>索引是一种数据结构，主要目的是加快查询速度。Mysql的默认存储引擎是InnoDB，InnoDB支持两种索引类别：B+Tree（平衡树），Hash索引。Hash索引适合等值查询，不适合范围查询，也不能利用索引排序，也不支持联合索引的最左匹配规则。B+Tree叶子节点上可以存放整行数据（聚集索引），也可以存放主键的值（非聚集索引）。因为聚集索引叶子节点上的值就是需要的数据所以查询速度快，非聚集索引需要根据叶子节点上的主键再进行查询（回表查询）。非聚集索引不一定需要查询多次，通过覆盖索引可以只查询一次。索引覆盖指一个查询语句的执行只用从索引中就能够取得，不必从数据表中读取，也可以称之为实现了索引覆盖。</p>
+<ul>
+<li>类型<ul>
+<li>唯一索引：索引列中的值时唯一的，但可以出现空值</li>
+<li>主键索引：特殊的唯一索引，不允许出现空值</li>
+<li>普通索引：允许出现重复的值</li>
+<li>联合索引：多个列按顺序组合共同的索引（左前缀匹配）</li>
+<li>全文索引：只能在char、varchar、text上使用</li>
+</ul>
+</li>
+<li>实现<ul>
+<li>B-Tree：适合用于大于或等于的范围查询</li>
+<li>R-Tree</li>
+<li>Hash：使用散列表来对数据进行索引，</li>
+<li>FullText</li>
+</ul>
+</li>
+</ul>
+<p>最左前缀匹配：如果有一个3列索引(col1,col2,col3)，则已经对(col1)、(col1,col2)、(col1,col3)和(col1,col2,col3)上建立了索引；这就是最左前缀原则</p>
+</li>
+<li><p>存储过程与函数</p>
+</li>
+<li><p>Mysql调优</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7rrtqcfsgj30sm0ai0ui.jpg" alt="1565543527214"></p>
+</li>
+<li><p>新特性</p>
+</li>
+<li><p>SQL优化</p>
+<ul>
+<li>查看慢日志</li>
+<li>explain查看执行计划</li>
+<li>优化SQL语句</li>
+</ul>
+</li>
+<li><p>读现象</p>
+</li>
+</ul>
+<ul>
+<li>脏读：一个事务正在访问数据，并且对数据进行了修改，而这种修改还没有提交(commit)到数据库中，这时，另外一个事务也访问这个数据，然后使用了这个数据。因为这个数据是还没有提交的数据，那么另外一个事务读到的这个数据是脏数据，依据脏数据所做的操作可能是不正确的。</li>
+<li>不可重复读：一个事务范围内两个相同的查询却返回了不同数据。这是由于查询时系统中其他事务修改的提交而引起的。比如事务T1读取某一数据，事务T2读取并修改了该数据，T1为了对读取值进行检验而再次读取该数据，便得到了不同的结果。</li>
+<li>幻读：第一个事务对一个表中的数据进行了修改，比如这种修改涉及到表中的“全部数据行”。同时，第二个事务也修改这个表中的数据，这种修改是向表中插入“一行新数据”。那么，以后就会发生操作第一个事务的用户发现表中还有没有修改的数据行，就好象发生了幻觉一样</li>
+</ul>
+<ul>
+<li><p>事务</p>
+<p>MySQL 事务主要用于处理操作量大，复杂度高的数据</p>
+<ul>
+<li>在 MySQL 中只有使用了 Innodb 数据库引擎的数据库或表才支持事务。</li>
+<li>事务处理可以用来维护数据库的完整性，保证成批的 SQL 语句要么全部执行，要么全部不执行。</li>
+<li>事务用来管理 insert,update,delete 语句</li>
+</ul>
+<p>ACID：满足事务的四个条件</p>
+<ul>
+<li><p>原子性（Atomicity）</p>
+<p>又称不可分割性，一个事务（transaction）中的所有操作，要么全部完成，要么全部不完成，不会结束在中间某个环节。事务在执行过程中发生错误，会被回滚（Rollback）到事务开始前的状态，就像这个事务从来没有执行过一样</p>
+</li>
+<li><p>一致性（Consistency）</p>
+<p>在事务开始之前和事务结束以后，数据库的完整性没有被破坏。这表示写入的资料必须完全符合所有的预设规则，这包含资料的精确度、串联性以及后续数据库可以自发性地完成预定的工作</p>
+</li>
+<li><p>隔离性（Isolation）</p>
+<p>数据库允许多个并发事务同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。事务隔离分为不同级别，包括读未提交（Read uncommitted）、读提交（read committed）、可重复读（repeatable read）和串行化（Serializable）</p>
+</li>
+<li><p>持久性（Durability）</p>
+<p>事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。</p>
+</li>
+</ul>
+<p>事务的隔离级别</p>
+</li>
+</ul>
+<ul>
+<li>未提交读</li>
+<li>提交读（读已提交）：Mysql默认事务隔离级别</li>
+<li>可重复读</li>
+<li>可序列化</li>
+</ul>
+<p>参考资料：</p>
+<p><a href="https://www.runoob.com/mysql/mysql-transaction.html" target="_blank" rel="noopener">https://www.runoob.com/mysql/mysql-transaction.html</a></p>
+<p><a href="https://www.w3cschool.cn/mysql/" target="_blank" rel="noopener">https://www.w3cschool.cn/mysql/</a></p>
+<p><a href="https://kaiwu.lagou.com/course/courseInfo.htm?courseId=1" target="_blank" rel="noopener">https://kaiwu.lagou.com/course/courseInfo.htm?courseId=1</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leonezhu.github.io/blog/2019/08/12/mysql/mysql/" data-id="ck1ipmmsj0004e5cng6280dlq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
 
 
 </section>
@@ -210,6 +745,18 @@
         
           <li>
             <a href="/blog/2019/08/19/高效学习/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/08/14/java/多线程/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/08/14/java/缓存/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/08/14/java/java常用工具类/">(no title)</a>
           </li>
         
       </ul>
