@@ -69,12 +69,22 @@
     <article id="post-hexo操作" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2019/11/04/hexo操作/" class="article-date">
-  <time datetime="2019-11-04T08:25:24.462Z" itemprop="datePublished">2019-11-04</time>
+  <time datetime="2019-11-03T16:00:00.000Z" itemprop="datePublished">2019-11-04</time>
 </a>
     
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/11/04/hexo操作/">hexo操作</a>
+    </h1>
+  
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -101,6 +111,8 @@
       <a data-url="https://leonezhu.github.io/blog/2019/11/04/hexo操作/" data-id="ck2k66w9c0000sncnrrgrzrag" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/其他/">其他</a></li></ul>
+
     </footer>
   </div>
   
@@ -111,12 +123,22 @@
     <article id="post-数据结构与算法/数组" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2019/10/10/数据结构与算法/数组/" class="article-date">
-  <time datetime="2019-10-10T04:10:03.587Z" itemprop="datePublished">2019-10-10</time>
+  <time datetime="2019-10-09T16:00:00.000Z" itemprop="datePublished">2019-10-10</time>
 </a>
     
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/10/10/数据结构与算法/数组/">数组</a>
+    </h1>
+  
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -140,54 +162,8 @@
       <a data-url="https://leonezhu.github.io/blog/2019/10/10/数据结构与算法/数组/" data-id="ck2k66wa00004sncn39mv64on" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/算法/">算法</a></li></ul>
 
-
-  
-    <article id="post-数据结构与算法/时间、空间复杂度" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2019/10/09/数据结构与算法/时间、空间复杂度/" class="article-date">
-  <time datetime="2019-10-09T04:32:05.665Z" itemprop="datePublished">2019-10-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>复杂度分析的作用</strong></p>
-<p>数据结构与算法解决的是“快”和“省 ”的问题，时间 、空间复杂度就是用来衡量算法执行效率的考量指标。</p>
-<p>与其对应的是“事后统计法”，即先将代码跑一遍，然后通过统计、监控得到算法 执行的时间与占用的内存来分析。</p>
-<p><strong>大O复杂度表示法</strong></p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7rwzsuip5j30vh031q31.jpg" alt="img"></p>
-<p>T(n)表示代码执行的时间；</p>
-<p>n表示数据规模的大小；</p>
-<p>f(n)表示每行代码执行的次数的总和；</p>
-<p>O表示代码执行时间T(n)与f(n)表达式成正比；</p>
-<p>(n) = O(2n2+2n+3) 即大O时间复杂度表示法，并不具体表示代码真正的执行时间，而是表示代码执行时间随数据规模增长的变化趋势，所以也叫渐进时间复杂度，即时间复杂度。空间复杂度类似。</p>
-<p><strong>时间复杂度分析</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (; p &lt; 100; ++p) &#123; </span><br><span class="line">	sum = sum + p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>*该段代码虽然是个循环 ，但是循环次数是已知的而不是n，所以时间复杂度依旧是常数级别的，不能代表执行效率与数据规模增长的变化 ，所以可以忽略。</p>
-<p>总的时间复杂度等于量级最大的那段代码的时间复杂度。</p>
-<p><strong>常见的时间复杂度实例</strong></p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7rxl8108ij30vq0fwjti.jpg" alt="img"></p>
-<p>非多项式量级：O(2^n) 和 O(n!)。非多项式量级的算法问题叫做NP（非确定多项式）问题 。 非多项式：规模n不是出现在底数的位置。</p>
-<p><strong>对数</strong></p>
-<blockquote>
-<p>如果a的x次方等于N（a&gt;0，且a不等于1），那么数x叫做以a为底N的对数（logarithm），记作x=logaN。其中，a叫做对数的<a href="https://baike.baidu.com/item/底数/5416651" target="_blank" rel="noopener">底数</a>，N叫做<a href="https://baike.baidu.com/item/真数/326681" target="_blank" rel="noopener">真数</a>。</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://leonezhu.github.io/blog/2019/10/09/数据结构与算法/时间、空间复杂度/" data-id="ck2k66wa40007sncn57ey1yxu" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -268,6 +244,68 @@
       <a data-url="https://leonezhu.github.io/blog/2019/10/09/Shell-POST/" data-id="ck2k66w9f0001sncnws9i12at" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/shell/">shell</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-数据结构与算法/时间、空间复杂度" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/10/09/数据结构与算法/时间、空间复杂度/" class="article-date">
+  <time datetime="2019-10-08T16:00:00.000Z" itemprop="datePublished">2019-10-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/10/09/数据结构与算法/时间、空间复杂度/">时间、空间复杂度</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>复杂度分析的作用**</p>
+<p>数据结构与算法解决的是“快”和“省 ”的问题，时间 、空间复杂度就是用来衡量算法执行效率的考量指标。</p>
+<p>与其对应的是“事后统计法”，即先将代码跑一遍，然后通过统计、监控得到算法 执行的时间与占用的内存来分析。</p>
+<p><strong>大O复杂度表示法</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7rwzsuip5j30vh031q31.jpg" alt="img"></p>
+<p>T(n)表示代码执行的时间；</p>
+<p>n表示数据规模的大小；</p>
+<p>f(n)表示每行代码执行的次数的总和；</p>
+<p>O表示代码执行时间T(n)与f(n)表达式成正比；</p>
+<p>(n) = O(2n2+2n+3) 即大O时间复杂度表示法，并不具体表示代码真正的执行时间，而是表示代码执行时间随数据规模增长的变化趋势，所以也叫渐进时间复杂度，即时间复杂度。空间复杂度类似。</p>
+<p><strong>时间复杂度分析</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (; p &lt; 100; ++p) &#123; </span><br><span class="line">	sum = sum + p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>*该段代码虽然是个循环 ，但是循环次数是已知的而不是n，所以时间复杂度依旧是常数级别的，不能代表执行效率与数据规模增长的变化 ，所以可以忽略。</p>
+<p>总的时间复杂度等于量级最大的那段代码的时间复杂度。</p>
+<p><strong>常见的时间复杂度实例</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7rxl8108ij30vq0fwjti.jpg" alt="img"></p>
+<p>非多项式量级：O(2^n) 和 O(n!)。非多项式量级的算法问题叫做NP（非确定多项式）问题 。 非多项式：规模n不是出现在底数的位置。</p>
+<p><strong>对数</strong></p>
+<blockquote>
+<p>如果a的x次方等于N（a&gt;0，且a不等于1），那么数x叫做以a为底N的对数（logarithm），记作x=logaN。其中，a叫做对数的<a href="https://baike.baidu.com/item/底数/5416651" target="_blank" rel="noopener">底数</a>，N叫做<a href="https://baike.baidu.com/item/真数/326681" target="_blank" rel="noopener">真数</a>。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leonezhu.github.io/blog/2019/10/09/数据结构与算法/时间、空间复杂度/" data-id="ck2k66wa40007sncn57ey1yxu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/算法/">算法</a></li></ul>
+
     </footer>
   </div>
   
@@ -278,12 +316,22 @@
     <article id="post-高效学习" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2019/08/19/高效学习/" class="article-date">
-  <time datetime="2019-08-18T17:24:39.076Z" itemprop="datePublished">2019-08-19</time>
+  <time datetime="2019-08-19T04:19:23.000Z" itemprop="datePublished">2019-08-19</time>
 </a>
     
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/08/19/高效学习/">高效学习</a>
+    </h1>
+  
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -338,6 +386,8 @@
       <a data-url="https://leonezhu.github.io/blog/2019/08/19/高效学习/" data-id="ck2k66w9h0002sncnm8ghlbr0" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/学习/">学习</a></li></ul>
+
     </footer>
   </div>
   
@@ -348,12 +398,22 @@
     <article id="post-java/缓存" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2019/08/14/java/缓存/" class="article-date">
-  <time datetime="2019-08-13T18:31:42.658Z" itemprop="datePublished">2019-08-14</time>
+  <time datetime="2019-08-13T16:00:00.000Z" itemprop="datePublished">2019-08-14</time>
 </a>
     
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/08/14/java/缓存/">redis缓存</a>
+    </h1>
+  
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -475,6 +535,54 @@
       <a data-url="https://leonezhu.github.io/blog/2019/08/14/java/缓存/" data-id="ck2k66wa9000csncnqonqausi" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Redis/">Redis</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java/java常用工具类" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/08/14/java/java常用工具类/" class="article-date">
+  <time datetime="2019-08-13T16:00:00.000Z" itemprop="datePublished">2019-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/08/14/java/java常用工具类/">Java常用工具类</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java常用工具类"><a href="#Java常用工具类" class="headerlink" title="Java常用工具类"></a>Java常用工具类</h1><ul>
+<li><p>CountDownLatch</p>
+<p>CountDodnLatch是一个常用的多线程控制工具类，是一个倒计时器。通过int参数的构造方法初始化一个指定线程数量的对象。主要方法有countDown(),awit()。</p>
+<p>countDown()：通知CountDownLatch有一个线程已经准备完毕，倒计数器减一</p>
+<p>awit()：要求主线程等待所有线程检查任务全部准备好才一起并行执行</p>
+<p>参考文档：<a href="https://www.relaxheart.cn/to/blog/streamline?uuid=83" target="_blank" rel="noopener">https://www.relaxheart.cn/to/blog/streamline?uuid=83</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leonezhu.github.io/blog/2019/08/14/java/java常用工具类/" data-id="ck2k66wa8000bsncns610dtso" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
+
     </footer>
   </div>
   
@@ -485,12 +593,22 @@
     <article id="post-java/多线程" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2019/08/14/java/多线程/" class="article-date">
-  <time datetime="2019-08-13T18:31:42.658Z" itemprop="datePublished">2019-08-14</time>
+  <time datetime="2019-08-13T16:00:00.000Z" itemprop="datePublished">2019-08-14</time>
 </a>
     
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/08/14/java/多线程/">多线程</a>
+    </h1>
+  
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -562,40 +680,8 @@
       <a data-url="https://leonezhu.github.io/blog/2019/08/14/java/多线程/" data-id="ck2k66wa7000asncnvfbx5v10" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
 
-
-  
-    <article id="post-java/java常用工具类" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2019/08/14/java/java常用工具类/" class="article-date">
-  <time datetime="2019-08-13T18:31:42.657Z" itemprop="datePublished">2019-08-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Java常用工具类"><a href="#Java常用工具类" class="headerlink" title="Java常用工具类"></a>Java常用工具类</h1><ul>
-<li><p>CountDownLatch</p>
-<p>CountDodnLatch是一个常用的多线程控制工具类，是一个倒计时器。通过int参数的构造方法初始化一个指定线程数量的对象。主要方法有countDown(),awit()。</p>
-<p>countDown()：通知CountDownLatch有一个线程已经准备完毕，倒计数器减一</p>
-<p>awit()：要求主线程等待所有线程检查任务全部准备好才一起并行执行</p>
-<p>参考文档：<a href="https://www.relaxheart.cn/to/blog/streamline?uuid=83" target="_blank" rel="noopener">https://www.relaxheart.cn/to/blog/streamline?uuid=83</a></p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://leonezhu.github.io/blog/2019/08/14/java/java常用工具类/" data-id="ck2k66wa8000bsncns610dtso" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -606,12 +692,22 @@
     <article id="post-java/Java面试知识点" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2019/08/14/java/Java面试知识点/" class="article-date">
-  <time datetime="2019-08-13T18:31:42.657Z" itemprop="datePublished">2019-08-14</time>
+  <time datetime="2019-08-13T16:00:00.000Z" itemprop="datePublished">2019-08-14</time>
 </a>
     
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/08/14/java/Java面试知识点/">Java面试知识点</a>
+    </h1>
+  
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -709,6 +805,8 @@
       <a data-url="https://leonezhu.github.io/blog/2019/08/14/java/Java面试知识点/" data-id="ck2k66wa30006sncnxnv278x2" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
+
     </footer>
   </div>
   
@@ -734,7 +832,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/算法/">算法</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Redis/">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/shell/">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/学习/">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/算法/">算法</a></li></ul>
     </div>
   </div>
 
@@ -744,7 +842,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/算法/" style="font-size: 10px;">算法</a>
+      <a href="/blog/tags/Java/" style="font-size: 20px;">Java</a> <a href="/blog/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/blog/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/blog/tags/shell/" style="font-size: 10px;">shell</a> <a href="/blog/tags/其他/" style="font-size: 10px;">其他</a> <a href="/blog/tags/学习/" style="font-size: 10px;">学习</a> <a href="/blog/tags/算法/" style="font-size: 20px;">算法</a>
     </div>
   </div>
 
@@ -766,15 +864,11 @@
       <ul>
         
           <li>
-            <a href="/blog/2019/11/04/hexo操作/">(no title)</a>
+            <a href="/blog/2019/11/04/hexo操作/">hexo操作</a>
           </li>
         
           <li>
-            <a href="/blog/2019/10/10/数据结构与算法/数组/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2019/10/09/数据结构与算法/时间、空间复杂度/">(no title)</a>
+            <a href="/blog/2019/10/10/数据结构与算法/数组/">数组</a>
           </li>
         
           <li>
@@ -783,6 +877,10 @@
         
           <li>
             <a href="/blog/2019/10/09/Shell-POST/">Shell &amp; POST</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/10/09/数据结构与算法/时间、空间复杂度/">时间、空间复杂度</a>
           </li>
         
       </ul>
