@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>LeoneZhu‘s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="复杂度分析的作用 数据结构与算法解决的是“快”和“省 ”的问题，时间 、空间复杂度就是用来衡量算法执行效率的考量指标。 与其对应的是“事后统计法”，即先将代码跑一遍，然后通过统计、监控得到算法 执行的时间与占用的内存来分析。 大O复杂度表示法  T(n)表示代码执行的时间； n表示数据规模的大小； f(n)表示每行代码执行的次数的总和； O表示代码执行时间T(n)与f(n)表达式成正比； (n)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeoneZhu‘s Blog">
+<meta property="og:url" content="https://leonezhu.github.io/blog/2019/10/09/数据结构与算法/时间、空间复杂度/index.html">
+<meta property="og:site_name" content="LeoneZhu‘s Blog">
+<meta property="og:description" content="复杂度分析的作用 数据结构与算法解决的是“快”和“省 ”的问题，时间 、空间复杂度就是用来衡量算法执行效率的考量指标。 与其对应的是“事后统计法”，即先将代码跑一遍，然后通过统计、监控得到算法 执行的时间与占用的内存来分析。 大O复杂度表示法  T(n)表示代码执行的时间； n表示数据规模的大小； f(n)表示每行代码执行的次数的总和； O表示代码执行时间T(n)与f(n)表达式成正比； (n)">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7rwzsuip5j30vh031q31.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7rxl8108ij30vq0fwjti.jpg">
+<meta property="og:updated_time" content="2019-10-09T08:32:46.233Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LeoneZhu‘s Blog">
+<meta name="twitter:description" content="复杂度分析的作用 数据结构与算法解决的是“快”和“省 ”的问题，时间 、空间复杂度就是用来衡量算法执行效率的考量指标。 与其对应的是“事后统计法”，即先将代码跑一遍，然后通过统计、监控得到算法 执行的时间与占用的内存来分析。 大O复杂度表示法  T(n)表示代码执行的时间； n表示数据规模的大小； f(n)表示每行代码执行的次数的总和； O表示代码执行时间T(n)与f(n)表达式成正比； (n)">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7rwzsuip5j30vh031q31.jpg">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="LeoneZhu‘s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">LeoneZhu‘s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/blog/" id="subtitle">记录美丽生活</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://leonezhu.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-数据结构与算法/时间、空间复杂度" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/10/09/数据结构与算法/时间、空间复杂度/" class="article-date">
+  <time datetime="2019-10-09T04:32:05.665Z" itemprop="datePublished">2019-10-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>复杂度分析的作用</strong></p>
+<p>数据结构与算法解决的是“快”和“省 ”的问题，时间 、空间复杂度就是用来衡量算法执行效率的考量指标。</p>
+<p>与其对应的是“事后统计法”，即先将代码跑一遍，然后通过统计、监控得到算法 执行的时间与占用的内存来分析。</p>
+<p><strong>大O复杂度表示法</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7rwzsuip5j30vh031q31.jpg" alt="img"></p>
+<p>T(n)表示代码执行的时间；</p>
+<p>n表示数据规模的大小；</p>
+<p>f(n)表示每行代码执行的次数的总和；</p>
+<p>O表示代码执行时间T(n)与f(n)表达式成正比；</p>
+<p>(n) = O(2n2+2n+3) 即大O时间复杂度表示法，并不具体表示代码真正的执行时间，而是表示代码执行时间随数据规模增长的变化趋势，所以也叫渐进时间复杂度，即时间复杂度。空间复杂度类似。</p>
+<p><strong>时间复杂度分析</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (; p &lt; 100; ++p) &#123; </span><br><span class="line">	sum = sum + p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>*该段代码虽然是个循环 ，但是循环次数是已知的而不是n，所以时间复杂度依旧是常数级别的，不能代表执行效率与数据规模增长的变化 ，所以可以忽略。</p>
+<p>总的时间复杂度等于量级最大的那段代码的时间复杂度。</p>
+<p><strong>常见的时间复杂度实例</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7rxl8108ij30vq0fwjti.jpg" alt="img"></p>
+<p>非多项式量级：O(2^n) 和 O(n!)。非多项式量级的算法问题叫做NP（非确定多项式）问题 。 非多项式：规模n不是出现在底数的位置。</p>
+<p><strong>对数</strong></p>
+<blockquote>
+<p>如果a的x次方等于N（a&gt;0，且a不等于1），那么数x叫做以a为底N的对数（logarithm），记作x=logaN。其中，a叫做对数的<a href="https://baike.baidu.com/item/底数/5416651" target="_blank" rel="noopener">底数</a>，N叫做<a href="https://baike.baidu.com/item/真数/326681" target="_blank" rel="noopener">真数</a>。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leonezhu.github.io/blog/2019/10/09/数据结构与算法/时间、空间复杂度/" data-id="ck2k66wa40007sncn57ey1yxu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2019/10/10/数据结构与算法/数组/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2019/10/09/数据结构与算法/数据结构与算法之美/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">数据结构与算法之美</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/算法/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/算法/" style="font-size: 10px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2019/11/04/hexo操作/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/10/10/数据结构与算法/数组/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/10/09/数据结构与算法/时间、空间复杂度/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/10/09/数据结构与算法/数据结构与算法之美/">数据结构与算法之美</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2019/10/09/Shell-POST/">Shell &amp; POST</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 leonezhu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
