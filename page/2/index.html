@@ -66,6 +66,353 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-hexo操作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/11/04/hexo操作/" class="article-date">
+  <time datetime="2019-11-03T16:00:00.000Z" itemprop="datePublished">2019-11-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/11/04/hexo操作/">hexo操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo文档</a></p>
+<p><strong>新建一篇文章</strong></p>
+<blockquote>
+<p>$ hexo new [layout] <title></title></p>
+</blockquote>
+<p>layout = 布局，默认值为post 代表路径为source/_posts</p>
+<p><strong>生成文件&amp;部署</strong></p>
+<blockquote>
+<p> $ hexo generate –deploy</p>
+<p> $ hexo deploy –generate</p>
+</blockquote>
+<p>简写</p>
+<blockquote>
+<p>  $ hexo g -d</p>
+<p>  $ hexo d -g</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leonezhu.github.io/blog/2019/11/04/hexo操作/" data-id="ck3e831t3000269cnhv86us2n" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/其他/">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-数据结构与算法/数组" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/10/10/数据结构与算法/数组/" class="article-date">
+  <time datetime="2019-10-09T16:00:00.000Z" itemprop="datePublished">2019-10-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/10/10/数据结构与算法/数组/">数组</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同数据类型的数据。</p>
+<p><strong>线性表</strong></p>
+<p>线性表就是数据排成 一条线一样的结构。每个线性表上的数据最多只有前和后两个方向。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7szc5c5ezj30vq0n5acy.jpg" alt="img"></p>
+<p> <strong>连续的内存空间与相同类型的数据</strong></p>
+<p>这两个特性使数组拥有“随机访问”的特性。弊端在于类似在数组中删除、插入一个数据时，为了保证连续性，会比较低效。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[i]_address = base_address + i * data_type_size</span><br></pre></td></tr></table></figure>
+
+<p>数组随机访问时通过以上公式计算目标元素存储的内存地址。date_type_size是指数组中该类型元素的大小，如int就是4字节</p>
+<blockquote>
+<p>计算机会给每个内存单元分配一个地址，计算机通过地址来访问内存</p>
+</blockquote>
+<p>//TODO  Java 集合总结、与数组对比、ArrayList源码分析</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leonezhu.github.io/blog/2019/10/10/数据结构与算法/数组/" data-id="ck3e831ud001869cnpisylouk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/数据结构与算法/">数据结构与算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-数据结构与算法/数据结构与算法之美" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/10/09/数据结构与算法/数据结构与算法之美/" class="article-date">
+  <time datetime="2019-10-09T04:19:23.000Z" itemprop="datePublished">2019-10-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/10/09/数据结构与算法/数据结构与算法之美/">数据结构与算法之美</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是数据结构？什么是算法？"><a href="#什么是数据结构？什么是算法？" class="headerlink" title="什么是数据结构？什么是算法？"></a>什么是数据结构？什么是算法？</h3><p>广义 上数据结构是指一组数据的存储结构；算法是指操作数据的一组方法；</p>
+<p>狭义上就是指队列、栈、堆、二分查找、动态规划等著名的数据结构与算法；</p>
+<p>两者的关系？数据结构是为算法服务的，算法要作用在特定的数据结构 上。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7ru1r6jv7j30u01tau05.jpg" alt="img"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leonezhu.github.io/blog/2019/10/09/数据结构与算法/数据结构与算法之美/" data-id="ck3e831uc001669cnrwqnrqa5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/数据结构与算法/">数据结构与算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Shell-POST" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/10/09/Shell-POST/" class="article-date">
+  <time datetime="2019-10-09T02:20:49.000Z" itemprop="datePublished">2019-10-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/10/09/Shell-POST/">Shell &amp; POST</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl </span><br><span class="line">-H &quot;Content-Type:application/json&quot; </span><br><span class="line">-X POST -d  &apos;&#123;&quot;image&quot;:&quot;test&quot;,&quot;id_card_side&quot;:&quot;front&quot;,&quot;detect_direction&quot;:&quot;true&quot;,&quot;detect_risk&quot;:&quot;true&quot;&#125;&apos; </span><br><span class="line">https://aip.baidubce.com/rest/2.0/ocr/v1/idcard?access_token=24.736647a5fe3f05204fa6a6cf4adf6edb.2592000.1572424892.282335-10853578</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leonezhu.github.io/blog/2019/10/09/Shell-POST/" data-id="ck3e831t0000169cn0r280vnz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Shell/">Shell</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-数据结构与算法/时间、空间复杂度" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/10/09/数据结构与算法/时间、空间复杂度/" class="article-date">
+  <time datetime="2019-10-08T16:00:00.000Z" itemprop="datePublished">2019-10-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/10/09/数据结构与算法/时间、空间复杂度/">时间、空间复杂度</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>复杂度分析的作用</strong></p>
+<p>数据结构与算法解决的是“快”和“省 ”的问题，时间 、空间复杂度就是用来衡量算法执行效率的考量指标。</p>
+<p>与其对应的是“事后统计法”，即先将代码跑一遍，然后通过统计、监控得到算法 执行的时间与占用的内存来分析。</p>
+<p><strong>大O复杂度表示法</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7rwzsuip5j30vh031q31.jpg" alt="img"></p>
+<p>T(n)表示代码执行的时间；</p>
+<p>n表示数据规模的大小；</p>
+<p>f(n)表示每行代码执行的次数的总和；</p>
+<p>O表示代码执行时间T(n)与f(n)表达式成正比；</p>
+<p>(n) = O(2n2+2n+3) 即大O时间复杂度表示法，并不具体表示代码真正的执行时间，而是表示代码执行时间随数据规模增长的变化趋势，所以也叫渐进时间复杂度，即时间复杂度。空间复杂度类似。</p>
+<p><strong>时间复杂度分析</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (; p &lt; 100; ++p) &#123; </span><br><span class="line">	sum = sum + p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>*该段代码虽然是个循环 ，但是循环次数是已知的而不是n，所以时间复杂度依旧是常数级别的，不能代表执行效率与数据规模增长的变化 ，所以可以忽略。</p>
+<p>总的时间复杂度等于量级最大的那段代码的时间复杂度。</p>
+<p><strong>常见的时间复杂度实例</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7rxl8108ij30vq0fwjti.jpg" alt="img"></p>
+<p>非多项式量级：O(2^n) 和 O(n!)。非多项式量级的算法问题叫做NP（非确定多项式）问题 。 </p>
+<p>非多项式：规模n不是出现在底数的位置。</p>
+<p>非多项式时间复杂度的算法是非常低效的算法，因为当n越来越大时，执行时间会急剧上升。</p>
+<p><strong>复杂度的分类</strong></p>
+<ul>
+<li>最好、最坏复杂度</li>
+<li>平均复杂度：概率论中的加权平均值，也叫作期望值，所以平均时间复杂度的全称应该叫加权平均时间复杂度或者期望时间复杂度</li>
+<li>均摊复杂度</li>
+</ul>
+<p><strong>对数</strong></p>
+<blockquote>
+<p>如果a的x次方等于N（a&gt;0，且a不等于1），那么数x叫做以a为底N的对数（logarithm），记作x=logaN。其中，a叫做对数的<a href="https://baike.baidu.com/item/底数/5416651" target="_blank" rel="noopener">底数</a>，N叫做<a href="https://baike.baidu.com/item/真数/326681" target="_blank" rel="noopener">真数</a>。</p>
+</blockquote>
+<p>阶乘</p>
+<blockquote>
+<p>一个正整数的<strong>阶乘</strong>（<strong>factorial</strong>）是所有小于及等于该数的<a href="https://baike.baidu.com/item/正整数/8461335" target="_blank" rel="noopener">正整数</a>的<a href="https://baike.baidu.com/item/积/1951220" target="_blank" rel="noopener">积</a>，并且0的阶乘为1。自然数n的阶乘写作n!。1808年，基斯顿·卡曼发明了这个运算符号，是数学术语。</p>
+<p>亦即n!=1×2×3×…×(n-1)n。阶乘亦可以<a href="https://baike.baidu.com/item/递归/1740695" target="_blank" rel="noopener">递归</a>方式定义：0!=1，n!=(n-1)!×n。</p>
+</blockquote>
+<p>多项式</p>
+<blockquote>
+<p><strong>多项式</strong>（Polynomial）是<a href="https://zh.wikipedia.org/wiki/代数学" target="_blank" rel="noopener">代数学</a>中的基础概念，是由称为<strong>未知数</strong>的<a href="https://zh.wikipedia.org/wiki/变量" target="_blank" rel="noopener">变量</a>和称为<strong>系数</strong>的<a href="https://zh.wikipedia.org/wiki/常数" target="_blank" rel="noopener">常数</a>通过有限次<a href="https://zh.wikipedia.org/wiki/加法" target="_blank" rel="noopener">加减法</a>、<a href="https://zh.wikipedia.org/wiki/乘法" target="_blank" rel="noopener">乘法</a>以及<a href="https://zh.wikipedia.org/wiki/自然数" target="_blank" rel="noopener">自然数</a>幂次的<a href="https://zh.wikipedia.org/wiki/乘方" target="_blank" rel="noopener">乘方</a>运算得到的代数表达式。多项式是<a href="https://zh.wikipedia.org/wiki/整式" target="_blank" rel="noopener">整式</a>的一种。未知数只有一个的多项式称为一元多项式；例如<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/253f5b006efe623bf44c3bf13c6bacdb3319dc52" alt="{\displaystyle x^{2}-3x+4}">就是一个三项一元二次多项式。未知数不止一个的多项式称为多元多项式，例如<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9bc0efd46747a707ffe066bdf85e7b2448ca6eba" alt="{\displaystyle x^{3}+2y-3z}">就是一个三项三元三次多项式，一个多项式就几次取决于最高的那个项的次数。(xy属于二次)</p>
+<p>可以写成只由一项构成的多项式也称为<strong>单项式</strong>。如果一项中不含未知数，则称之为<strong><a href="https://zh.wikipedia.org/wiki/常数项" target="_blank" rel="noopener">常数项</a></strong>。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leonezhu.github.io/blog/2019/10/09/数据结构与算法/时间、空间复杂度/" data-id="ck3e831ue001b69cn1cgu3sm2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/数据结构与算法/">数据结构与算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-高效学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/08/19/高效学习/" class="article-date">
+  <time datetime="2019-08-19T04:19:23.000Z" itemprop="datePublished">2019-08-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/08/19/高效学习/">高效学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="高效学习"><a href="#高效学习" class="headerlink" title="高效学习"></a>高效学习</h1><h2 id="端正学习态度"><a href="#端正学习态度" class="headerlink" title="端正学习态度"></a>端正学习态度</h2><p>学习是一件逆人性的事，就像锻炼身体一样，需要人持续付出，会让人感到痛苦，并随时想找理由放弃</p>
+<ul>
+<li><p>被动学习</p>
+<p>听讲、阅读、试听、演示</p>
+</li>
+<li><p>主动学习</p>
+<p>讨论、时间、教授他人</p>
+<p>学习不是努力读更多的书，盲目追求阅读的速度和数量，这会让人产生低层次的勤奋和成长的感觉，这只是在使蛮力。在思辨，要践行，要总结和归纳，否则，你只是在机械地重复某件事，而不会有质的成长</p>
+</li>
+<li><p>浅度学习</p>
+<p>从微信公众号、博客等平台获取别人总结的知识。让人短时间内体会到轻松获取知识的快感，并产生勤奋好学和成长的幻觉。陷入啊“什么都懂，却依然过不好这一生“的状态 </p>
+</li>
+<li><p>深度学习</p>
+<p>有更深层次的思考、把知识转换成自己技能</p>
+</li>
+<li><p>如何进行深度学习？</p>
+<ul>
+<li>知识采集：获取信息源头、破解表面信息的内在本质、多方数据印证</li>
+<li>知识缝合：把信息组织起来，成为结构体的知识。连接记忆，逻辑推理，知识梳理</li>
+<li>技能转换：举一反三、实践和练习、传授教导，把知识转化成自己的技能</li>
+</ul>
+</li>
+<li><p>学习的观点</p>
+<ul>
+<li><p>学习是为了找到方法</p>
+<p>学习不仅仅是为了找到答案，而是为了找到方法。只有掌握解题的思路和方法，才算得上拥有解决问题的能力</p>
+</li>
+<li><p>学习是为了找到真理</p>
+<p>学习不仅仅是为了知道，而更是为了思考和理解。学习的过程中，我们不是为了知道某个事得表面是什么，而是要通过表象去探索其内在的本质和原理</p>
+</li>
+<li><p>学习是为了了解自己</p>
+<p>学习不仅仅是为了开拓眼界，而更是为了找到自己的未知，为了了解自己。你不知道你不知道的东西。你永远不会去学习你不知道其存在的东西。学习可以让你知道自己不知道的东西</p>
+</li>
+<li><p>学习是为了改变自己</p>
+<p>学习是为了改变自己的思考方式、思维方式，改变自己与生俱来的那些垃圾和低效的算法。学习让我们改变自己，行动和实践，反思和改善，从而获得成长</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="源头、原理和知识地图"><a href="#源头、原理和知识地图" class="headerlink" title="源头、原理和知识地图"></a>源头、原理和知识地图</h2><ul>
+<li>挑选知识和信息源</li>
+<li>注重基础和原理</li>
+<li>知识地图</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leonezhu.github.io/blog/2019/08/19/高效学习/" data-id="ck3e831tc000a69cnsnkxx2nc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/学习/">学习</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-java/缓存" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2019/08/14/java/缓存/" class="article-date">
@@ -203,10 +550,56 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leonezhu.github.io/blog/2019/08/14/java/缓存/" data-id="ck2ln7a8e000nb6cnnw4fzyta" class="article-share-link">Share</a>
+      <a data-url="https://leonezhu.github.io/blog/2019/08/14/java/缓存/" data-id="ck3e831u9000z69cng6514r02" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Redis/">Redis</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java/java常用工具类" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/08/14/java/java常用工具类/" class="article-date">
+  <time datetime="2019-08-13T16:00:00.000Z" itemprop="datePublished">2019-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/08/14/java/java常用工具类/">Java常用工具类</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java常用工具类"><a href="#Java常用工具类" class="headerlink" title="Java常用工具类"></a>Java常用工具类</h1><ul>
+<li><p>CountDownLatch</p>
+<p>CountDodnLatch是一个常用的多线程控制工具类，是一个倒计时器。通过int参数的构造方法初始化一个指定线程数量的对象。主要方法有countDown(),awit()。</p>
+<p>countDown()：通知CountDownLatch有一个线程已经准备完毕，倒计数器减一</p>
+<p>awit()：要求主线程等待所有线程检查任务全部准备好才一起并行执行</p>
+<p>参考文档：<a href="https://www.relaxheart.cn/to/blog/streamline?uuid=83" target="_blank" rel="noopener">https://www.relaxheart.cn/to/blog/streamline?uuid=83</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://leonezhu.github.io/blog/2019/08/14/java/java常用工具类/" data-id="ck3e831u7000u69cnxvsnu7rb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -328,7 +721,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leonezhu.github.io/blog/2019/08/14/java/Java面试知识点/" data-id="ck2ln7a8b000jb6cns68qroxj" class="article-share-link">Share</a>
+      <a data-url="https://leonezhu.github.io/blog/2019/08/14/java/Java面试知识点/" data-id="ck3e831u6000r69cnzrk1u02x" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
@@ -340,9 +733,9 @@
 
 
   
-    <article id="post-java/java常用工具类" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java/多线程" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/blog/2019/08/14/java/java常用工具类/" class="article-date">
+    <a href="/blog/2019/08/14/java/多线程/" class="article-date">
   <time datetime="2019-08-13T16:00:00.000Z" itemprop="datePublished">2019-08-14</time>
 </a>
     
@@ -354,7 +747,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/blog/2019/08/14/java/java常用工具类/">Java常用工具类</a>
+      <a class="article-title" href="/blog/2019/08/14/java/多线程/">多线程</a>
     </h1>
   
 
@@ -362,198 +755,75 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Java常用工具类"><a href="#Java常用工具类" class="headerlink" title="Java常用工具类"></a>Java常用工具类</h1><ul>
-<li><p>CountDownLatch</p>
-<p>CountDodnLatch是一个常用的多线程控制工具类，是一个倒计时器。通过int参数的构造方法初始化一个指定线程数量的对象。主要方法有countDown(),awit()。</p>
-<p>countDown()：通知CountDownLatch有一个线程已经准备完毕，倒计数器减一</p>
-<p>awit()：要求主线程等待所有线程检查任务全部准备好才一起并行执行</p>
-<p>参考文档：<a href="https://www.relaxheart.cn/to/blog/streamline?uuid=83" target="_blank" rel="noopener">https://www.relaxheart.cn/to/blog/streamline?uuid=83</a></p>
+        <h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><ul>
+<li><p>ArrayBlockingQueue类</p>
+<p>是java.util.concurrent包下的一个基于数组的阻塞队列。主要方法有：</p>
+<p>add(E e)：将e加到队列里，实际调用offer方法，失败报错</p>
+<p>offer(E e)：将e放到队列里，如果队列可以容纳，则返回ture，否则返回false</p>
+<p>offer(E e, long timeout, TimeUnit unit)：添加超时时间参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public boolean offer(E e, long timeout, TimeUnit unit)</span><br><span class="line">    throws InterruptedException &#123;</span><br><span class="line">  </span><br><span class="line">    Objects.requireNonNull(e);</span><br><span class="line">    long nanos = unit.toNanos(timeout);</span><br><span class="line">    final ReentrantLock lock = this.lock;</span><br><span class="line">    lock.lockInterruptibly();</span><br><span class="line">    try &#123;</span><br><span class="line">        while (count == items.length) &#123;</span><br><span class="line">        //超时，直接返回false</span><br><span class="line">            if (nanos &lt;= 0L)</span><br><span class="line">                return false;</span><br><span class="line">            nanos = notFull.awaitNanos(nanos);</span><br><span class="line">        &#125;</span><br><span class="line">        enqueue(e);</span><br><span class="line">        return true;</span><br><span class="line">    &#125; finally &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>put(E e)：将e放到队列里，如果队列没有空间，则调用该方法的线程被阻断，直到队列里有空间再继续</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public void put(E e) throws InterruptedException &#123;</span><br><span class="line">    Objects.requireNonNull(e);</span><br><span class="line">    final ReentrantLock lock = this.lock;</span><br><span class="line">    lock.lockInterruptibly();</span><br><span class="line">    try &#123;</span><br><span class="line">        while (count == items.length)</span><br><span class="line">            notFull.await();</span><br><span class="line">        enqueue(e);</span><br><span class="line">    &#125; finally &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>Sleep()与wait()的区别？</p>
+<ol>
+<li>sleep是Treed类的方法，wait是Object类的方法</li>
+<li>sleep不会影响锁行为的改变</li>
+<li>sleep与wait都会暂停当前的线程，调用wait后需要别的线程执行notify/notifyAll才能重新获得CPU的执行时间</li>
+<li></li>
+</ol>
+</li>
+<li><p>锁</p>
+<p><a href="https://tech.meituan.com/2018/11/15/java-lock.html" target="_blank" rel="noopener">Java锁</a></p>
+<ul>
+<li><p>Synchronized 与 Lock的区别</p>
+<p><a href="https://blog.csdn.net/u012403290/article/details/64910926" target="_blank" rel="noopener">https://blog.csdn.net/u012403290/article/details/64910926</a></p>
+<ol>
+<li>Synchronized 是Java中的关键字，托管给JVM执行。Lock是接口，通过java代码控制锁的实现，常用的类有ReentrantLock。</li>
+<li>Synchronized 锁的释放方式有两种。一是获取锁的线程执行完了同步代码，释放锁。二是执行异常释放锁。Lock获取锁后必须再finaly里释放锁，不然会死锁</li>
+<li>两者锁的获取方式不一样。对于Synchronized 而言，假设A线程获得锁，B线程等待。如果A线程阻塞，B线程会一直等待。Lock有很多实现类，获取锁的方式也有多种。。。TODO</li>
+<li>Synchronized 无法获得锁的状态，Lock可以判断</li>
+<li>可实现的锁类型不一样：Synchronized（可重入 不可中断 非公平） ，Lock（可重入 可判断 可公平（两者皆可））</li>
+</ol>
+</li>
+<li><p>锁的类型</p>
+<ul>
+<li><p>可重入锁：在执行对象中所有同步方法不用再次获得锁</p>
+</li>
+<li><p>可中断锁：在等待获取锁过程中可中断</p>
+</li>
+<li><p>公平锁： 按等待获取锁的线程的等待时间进行获取，等待时间长的具有优先获取锁权利</p>
+</li>
+<li><p>读写锁：对资源读取和写入的时候拆分为2部分处理，读的时候可以多线程一起读，写的时候必须同步地写</p>
+</li>
+<li><p>悲观锁：对于同一个数据的并发操作，悲观锁认为自己在使用数据的时候一定有别的线程来修改数据，因此在获取数据的时候会先加锁，确保数据不会被别的线程修改。Java中，synchronized关键字和Lock的实现类都是悲观锁</p>
+</li>
+<li><p>乐观锁：认为自己在使用数据时不会有别的线程修改数据，所以不会添加锁，只是在更新数据的时候去判断之前有没有别的线程更新了这个数据。如果这个数据没有被更新，当前线程将自己修改的数据成功写入。如果数据已经被其他线程更新，则根据不同的实现方式执行不同的操作（例如报错或者自动重试）。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>volatile深入分析</p>
+<p><a href="https://blog.csdn.net/vernonzheng/article/details/8201744" target="_blank" rel="noopener">https://blog.csdn.net/vernonzheng/article/details/8201744</a></p>
 </li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://leonezhu.github.io/blog/2019/08/14/java/java常用工具类/" data-id="ck2ln7a8c000kb6cnyinllp3f" class="article-share-link">Share</a>
+      <a data-url="https://leonezhu.github.io/blog/2019/08/14/java/多线程/" data-id="ck3e831u5000q69cnuac8uyu8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Java/">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-mysql/mysql" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2019/08/12/mysql/mysql/" class="article-date">
-  <time datetime="2019-08-11T16:00:00.000Z" itemprop="datePublished">2019-08-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2019/08/12/mysql/mysql/">mysql知识点</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h1><ul>
-<li><p>常用SQL语句</p>
-</li>
-<li><p>数据类型</p>
-<p><a href="https://blog.csdn.net/DayDreamingBoy/article/details/6310907" target="_blank" rel="noopener">https://blog.csdn.net/DayDreamingBoy/article/details/6310907</a></p>
-</li>
-<li><p>存储引擎</p>
-<ul>
-<li>MyISAM：Mysql5.0之前的默认数据库引擎，较高的插入、查询速度，但不支持事务</li>
-<li>InnoDB：Mysql5.5 版本后的默认数据库引擎。支持ACID事务，支持外键，支持行级锁</li>
-<li>BDB：第三方Mysql存储引擎</li>
-</ul>
-</li>
-<li><p>锁</p>
-</li>
-</ul>
-<p><a href="https://zhuanlan.zhihu.com/p/29150809" target="_blank" rel="noopener">Mysql锁的总结</a></p>
-<p>  并发事务同时访问一个资源时，有可能导致数据不一致。锁就是其中将数据访问顺序化，以保证数据库数据的一致性的机制。锁是在执行多线程时用于强行限制资源访问的同步机制，即用于在并发控制中保证对互斥要求的满足。</p>
-<p>  锁的分类：</p>
-<ul>
-<li><p>按操作划分：</p>
-<ul>
-<li>DML锁：data locks，数据锁），用于保护数据的完整性，其中包括行级锁(Row Locks (TX锁))、表级锁(table lock(TM锁))</li>
-<li>DDL锁：（dictionary locks，数据字典锁），用于保护数据库对象的结构，如表、索引等的结构定义。其中包排他DDL锁（Exclusive DDL lock）、共享DDL锁（Share DDL lock）、可中断解析锁（Breakable parse locks）</li>
-</ul>
-</li>
-<li><p>按锁的粒度划分</p>
-<ul>
-<li>表级锁：开销小，加锁快；不会出现死锁；锁定粒度大，发生锁冲突的概率最高，并发度最低。</li>
-<li>行级锁：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低，并发度也最高。</li>
-<li>页级锁</li>
-</ul>
-</li>
-<li><p>按锁的级别划分</p>
-<ul>
-<li>共享锁：读锁，其他事务可以读，不可以写</li>
-<li>排他锁：写锁，其他事务既不能读也不能写</li>
-</ul>
-</li>
-<li><p>按锁的加锁方式</p>
-<ul>
-<li>自动锁</li>
-<li>显示锁</li>
-</ul>
-</li>
-<li><p>按使用方式</p>
-<ul>
-<li>乐观锁：假设不会发生并发冲突，只在提交操作时检查是否违反数据完整性。乐观锁不不能解决脏读的问题。可以使用版本号等机制。乐观锁适用于多读的应用类型，这样可以提高吞吐量</li>
-<li>悲观锁：每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会block直到它拿到锁。传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。</li>
-</ul>
-<p>优化锁性能：</p>
-<p>//TODO</p>
-<p>死锁：死锁是指多个事务在同一个资源上相互占用，并请求锁定对方占用的资源，从而导致恶性循环</p>
-<p>InnoDB避免死锁：</p>
-<p>//TODO</p>
-</li>
-</ul>
-<ul>
-<li><p>索引</p>
-<p><a href="https://tech.meituan.com/2014/06/30/mysql-index.html" target="_blank" rel="noopener">MySQL索引原理及慢查询优化</a></p>
-<p>索引是一种数据结构，主要目的是加快查询速度。Mysql的默认存储引擎是InnoDB，InnoDB支持两种索引类别：B+Tree（平衡树），Hash索引。Hash索引适合等值查询，不适合范围查询，也不能利用索引排序，也不支持联合索引的最左匹配规则。B+Tree叶子节点上可以存放整行数据（聚集索引），也可以存放主键的值（非聚集索引）。因为聚集索引叶子节点上的值就是需要的数据所以查询速度快，非聚集索引需要根据叶子节点上的主键再进行查询（回表查询）。非聚集索引不一定需要查询多次，通过覆盖索引可以只查询一次。索引覆盖指一个查询语句的执行只用从索引中就能够取得，不必从数据表中读取，也可以称之为实现了索引覆盖。</p>
-<ul>
-<li>类型<ul>
-<li>唯一索引：索引列中的值时唯一的，但可以出现空值</li>
-<li>主键索引：特殊的唯一索引，不允许出现空值</li>
-<li>普通索引：允许出现重复的值</li>
-<li>联合索引：多个列按顺序组合共同的索引（左前缀匹配）</li>
-<li>全文索引：只能在char、varchar、text上使用</li>
-</ul>
-</li>
-<li>实现<ul>
-<li>B-Tree：适合用于大于或等于的范围查询</li>
-<li>R-Tree</li>
-<li>Hash：使用散列表来对数据进行索引，</li>
-<li>FullText</li>
-</ul>
-</li>
-</ul>
-<p>最左前缀匹配：如果有一个3列索引(col1,col2,col3)，则已经对(col1)、(col1,col2)、(col1,col3)和(col1,col2,col3)上建立了索引；这就是最左前缀原则</p>
-</li>
-<li><p>存储过程与函数</p>
-</li>
-<li><p>Mysql调优</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7rrtqcfsgj30sm0ai0ui.jpg" alt="1565543527214"></p>
-</li>
-<li><p>新特性</p>
-</li>
-<li><p>SQL优化</p>
-<ul>
-<li>查看慢日志</li>
-<li>explain查看执行计划</li>
-<li>优化SQL语句</li>
-</ul>
-</li>
-<li><p>读现象</p>
-</li>
-</ul>
-<ul>
-<li>脏读：一个事务正在访问数据，并且对数据进行了修改，而这种修改还没有提交(commit)到数据库中，这时，另外一个事务也访问这个数据，然后使用了这个数据。因为这个数据是还没有提交的数据，那么另外一个事务读到的这个数据是脏数据，依据脏数据所做的操作可能是不正确的。</li>
-<li>不可重复读：一个事务范围内两个相同的查询却返回了不同数据。这是由于查询时系统中其他事务修改的提交而引起的。比如事务T1读取某一数据，事务T2读取并修改了该数据，T1为了对读取值进行检验而再次读取该数据，便得到了不同的结果。</li>
-<li>幻读：第一个事务对一个表中的数据进行了修改，比如这种修改涉及到表中的“全部数据行”。同时，第二个事务也修改这个表中的数据，这种修改是向表中插入“一行新数据”。那么，以后就会发生操作第一个事务的用户发现表中还有没有修改的数据行，就好象发生了幻觉一样</li>
-</ul>
-<ul>
-<li><p>事务</p>
-<p>MySQL 事务主要用于处理操作量大，复杂度高的数据</p>
-<ul>
-<li>在 MySQL 中只有使用了 Innodb 数据库引擎的数据库或表才支持事务。</li>
-<li>事务处理可以用来维护数据库的完整性，保证成批的 SQL 语句要么全部执行，要么全部不执行。</li>
-<li>事务用来管理 insert,update,delete 语句</li>
-</ul>
-<p>ACID：满足事务的四个条件</p>
-<ul>
-<li><p>原子性（Atomicity）</p>
-<p>又称不可分割性，一个事务（transaction）中的所有操作，要么全部完成，要么全部不完成，不会结束在中间某个环节。事务在执行过程中发生错误，会被回滚（Rollback）到事务开始前的状态，就像这个事务从来没有执行过一样</p>
-</li>
-<li><p>一致性（Consistency）</p>
-<p>在事务开始之前和事务结束以后，数据库的完整性没有被破坏。这表示写入的资料必须完全符合所有的预设规则，这包含资料的精确度、串联性以及后续数据库可以自发性地完成预定的工作</p>
-</li>
-<li><p>隔离性（Isolation）</p>
-<p>数据库允许多个并发事务同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。事务隔离分为不同级别，包括读未提交（Read uncommitted）、读提交（read committed）、可重复读（repeatable read）和串行化（Serializable）</p>
-</li>
-<li><p>持久性（Durability）</p>
-<p>事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。</p>
-</li>
-</ul>
-<p>事务的隔离级别</p>
-</li>
-</ul>
-<ul>
-<li>未提交读</li>
-<li>提交读（读已提交）：Mysql默认事务隔离级别</li>
-<li>可重复读</li>
-<li>可序列化</li>
-</ul>
-<p>参考资料：</p>
-<p><a href="https://www.runoob.com/mysql/mysql-transaction.html" target="_blank" rel="noopener">https://www.runoob.com/mysql/mysql-transaction.html</a></p>
-<p><a href="https://www.w3cschool.cn/mysql/" target="_blank" rel="noopener">https://www.w3cschool.cn/mysql/</a></p>
-<p><a href="https://kaiwu.lagou.com/course/courseInfo.htm?courseId=1" target="_blank" rel="noopener">https://kaiwu.lagou.com/course/courseInfo.htm?courseId=1</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://leonezhu.github.io/blog/2019/08/12/mysql/mysql/" data-id="ck2ln7a8h000rb6cndmxm9xog" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Mysql/">Mysql</a></li></ul>
 
     </footer>
   </div>
@@ -566,7 +836,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/blog/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/blog/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/">3</a><a class="extend next" rel="next" href="/blog/page/3/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -580,7 +850,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mysql/">Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Redis/">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Shell/">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/flowable/">flowable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/学习/">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/算法/">算法</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Flowable/">Flowable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mysql/">Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Redis/">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Shell/">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/flowable/">flowable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/http/">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/学习/">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/数据结构与算法/">数据结构与算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/生活-荒诞/">生活 荒诞</a></li></ul>
     </div>
   </div>
 
@@ -590,7 +860,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/Java/" style="font-size: 20px;">Java</a> <a href="/blog/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/blog/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/blog/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/blog/tags/flowable/" style="font-size: 15px;">flowable</a> <a href="/blog/tags/其他/" style="font-size: 15px;">其他</a> <a href="/blog/tags/学习/" style="font-size: 10px;">学习</a> <a href="/blog/tags/算法/" style="font-size: 20px;">算法</a>
+      <a href="/blog/tags/Flowable/" style="font-size: 10px;">Flowable</a> <a href="/blog/tags/Java/" style="font-size: 20px;">Java</a> <a href="/blog/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/blog/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/blog/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/blog/tags/flowable/" style="font-size: 13.33px;">flowable</a> <a href="/blog/tags/http/" style="font-size: 10px;">http</a> <a href="/blog/tags/其他/" style="font-size: 16.67px;">其他</a> <a href="/blog/tags/学习/" style="font-size: 13.33px;">学习</a> <a href="/blog/tags/数据结构与算法/" style="font-size: 20px;">数据结构与算法</a> <a href="/blog/tags/生活-荒诞/" style="font-size: 10px;">生活 荒诞</a>
     </div>
   </div>
 
@@ -612,23 +882,23 @@
       <ul>
         
           <li>
-            <a href="/blog/2019/11/05/Flowable-SpringBoot简易demo/">Flowable+SpringBoot简易Demo</a>
+            <a href="/blog/2019/11/21/锁/">锁</a>
           </li>
         
           <li>
-            <a href="/blog/2019/11/05/Flowable知识点/">Flowable知识点</a>
+            <a href="/blog/2019/11/13/如何利用好自己的时间/">如何利用好自己的时间</a>
           </li>
         
           <li>
-            <a href="/blog/2019/11/04/学习模板/">学习模板</a>
+            <a href="/blog/2019/11/13/常用命名前缀/">常用命名前缀</a>
           </li>
         
           <li>
-            <a href="/blog/2019/11/04/hexo操作/">hexo操作</a>
+            <a href="/blog/2019/11/08/life/切勿忘型/">切勿忘型</a>
           </li>
         
           <li>
-            <a href="/blog/2019/10/10/数据结构与算法/数组/">数组</a>
+            <a href="/blog/2019/11/07/flowable/Flowable-Form/">Flowable-Form</a>
           </li>
         
       </ul>
